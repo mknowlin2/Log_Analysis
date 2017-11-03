@@ -2,7 +2,7 @@
 #
 # A log web service for the 'news' database.
 
-from flask import Flask
+from flask import Flask, render_template
 from newsdb import get_top_three_articles, get_most_pop_author, \
                    get_request_error_log
 
@@ -22,23 +22,15 @@ LOG_TMPLT2 = '''
 def main():
     """Main news log page."""
 
-    # Set homePage file variable
-    homePage = open('index.html', 'r')
-
-    # Store homePage file data in data
-    data = homePage.read()
-
     # Retrieve data from database
     logs = "".join(LOG_TMPLT.format(title, views)
                    for title, views in get_top_three_articles())
-    logs = logs + "".join(LOG_TMPLT.format(title, views)
-                          for title, views in get_most_pop_author())
-    logs = logs + "".join(LOG_TMPLT2.format(title, err_pct)
-                          for title, err_pct in get_request_error_log())
+    logs = logs + "".join(LOG_TMPLT.format(name, views)
+                          for name, views in get_most_pop_author())
+    logs = logs + "".join(LOG_TMPLT2.format(log_date, err_pct)
+                          for log_date, err_pct in get_request_error_log())
 
-    html = data % logs
-
-    return html
+    return render_template('index.html').format(logs)
 
 
 if __name__ == '__main__':
