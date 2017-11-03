@@ -1,0 +1,102 @@
+body {
+  position: relative;
+}
+
+hr {
+  width: 100%;
+  border-top: 2px solid #000 !important;
+}
+
+h1 { text-align: center; }
+
+div.logs { border: 1px solid #999;
+           padding: 10px 10px;
+           margin: 10px 20%%; }
+
+.logo {
+  width: 20%;
+  background: #fff;
+}
+
+.banner {
+  width: 80%;
+  text-align: right;
+  background: #fff;
+}
+
+.page-title {
+  font-family: "Berkshire Swash", cursive;
+}
+
+/*.job-title {
+  font-family: "Abril Fatface", cursive;
+}*/
+
+.row {
+  margin-bottom: 1rem;
+}
+
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.text-center a {
+  color: #00f !important;
+  text-decoration: underline !important;
+}
+
+[class*="col-"] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#logo {
+  height: 80px;
+}
+
+#projects h1 {
+  font-family: "Abril Fatface", cursive;
+}
+
+#projects h2 {
+  font-family: "Abril Fatface", cursive;
+}
+
+#projects img {
+  height: 200px;
+}
+
+@media screen and (max-width: 575px) {
+  #logo {
+    height: 60px;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  /*.job-title {
+    font-size: 1.0rem;
+  }*/
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  /*.job-title {
+    font-size: 1.0rem;
+  }*/
+}
+
+@media screen and (min-width: 483px) and (max-width: 767px) {
+  .page-title {
+    font-size: 2.25rem;
+  }
+
+  /*.job-title {
+    font-size: 1.25rem;
+  }*/
+}
