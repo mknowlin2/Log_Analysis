@@ -26,3 +26,15 @@ def get_most_pop_author():
 
     return c.fetchall()
     db.close()
+
+
+def get_request_error_log():
+    """Return a list of all days where more than '1%' of requests lead to
+       errors"""
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+
+    c.execute("select 2 + 4, 3 + 5")
+
+    return c.fetchall()
+    db.close()

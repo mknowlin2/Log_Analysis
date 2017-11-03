@@ -3,7 +3,8 @@
 # A log web service for the 'news' database.
 
 from flask import Flask
-from newsdb import get_top_three_articles, get_most_pop_author
+from newsdb import get_top_three_articles, get_most_pop_author, \
+                   get_request_error_log
 
 app = Flask(__name__)
 
@@ -28,6 +29,8 @@ def main():
            for title, view_cnt in get_top_three_articles())
     logs = logs + "".join(LOG_TMPLT.format(title, view_cnt) \
            for title, view_cnt in get_most_pop_author())
+    logs = logs + "".join(LOG_TMPLT.format(title, view_cnt) \
+           for title, view_cnt in get_request_error_log())
 
     html = data % logs
     return html
