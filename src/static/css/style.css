@@ -7,7 +7,11 @@ hr {
   border-top: 2px solid #000 !important;
 }
 
-h1 { text-align: center; }
+h1 { text-align: left; }
+
+main h2 {
+  font-family: "Abril Fatface", cursive;
+}
 
 div.logs { border: 1px solid #999;
            padding: 10px 10px;
@@ -25,12 +29,8 @@ div.logs { border: 1px solid #999;
 }
 
 .page-title {
-  font-family: "Berkshire Swash", cursive;
-}
-
-/*.job-title {
   font-family: "Abril Fatface", cursive;
-}*/
+}
 
 .row {
   margin-bottom: 1rem;
@@ -41,9 +41,8 @@ div.logs { border: 1px solid #999;
   margin-bottom: 0;
 }
 
-.text-center a {
-  color: #00f !important;
-  text-decoration: underline !important;
+.stats h3 {
+  font-family: "Abril Fatface", cursive;
 }
 
 [class*="col-"] {
@@ -53,50 +52,4 @@ div.logs { border: 1px solid #999;
 
 #logo {
   height: 80px;
-}
-
-#projects h1 {
-  font-family: "Abril Fatface", cursive;
-}
-
-#projects h2 {
-  font-family: "Abril Fatface", cursive;
-}
-
-#projects img {
-  height: 200px;
-}
-
-@media screen and (max-width: 575px) {
-  #logo {
-    height: 60px;
-  }
-
-  .page-title {
-    font-size: 1.75rem;
-  }
-
-  /*.job-title {
-    font-size: 1.0rem;
-  }*/
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  /*.job-title {
-    font-size: 1.0rem;
-  }*/
-}
-
-@media screen and (min-width: 483px) and (max-width: 767px) {
-  .page-title {
-    font-size: 2.25rem;
-  }
-
-  /*.job-title {
-    font-size: 1.25rem;
-  }*/
 }
