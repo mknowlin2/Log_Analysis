@@ -23,14 +23,14 @@ def main():
     """Main news log page."""
 
     # Retrieve data from database
-    logs = "".join(LOG_TMPLT.format(title, views)
+    article_logs = "".join(LOG_TMPLT.format(title, views)
                    for title, views in get_top_three_articles())
-    logs = logs + "".join(LOG_TMPLT.format(name, views)
+    author_logs = "".join(LOG_TMPLT.format(name, views)
                           for name, views in get_most_pop_author())
-    logs = logs + "".join(LOG_TMPLT2.format(log_date, err_pct)
+    err_logs = "".join(LOG_TMPLT2.format(log_date, err_pct)
                           for log_date, err_pct in get_request_error_log())
 
-    return render_template('index.html').format(logs)
+    return render_template('index.html').format(article_logs, author_logs, err_logs)
 
 
 if __name__ == '__main__':

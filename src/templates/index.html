@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
       <!-- Meta tags -->
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +8,7 @@
       <!-- CSS -->
       <link rel="stylesheet" href="./static/css/bootstrap/bootstrap.min.css">
       <link rel="stylesheet" href="./static/css/style.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface%7CBerkshire+Swash">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
 
       <title>News Database Logs</title>
     </head>
@@ -24,11 +24,41 @@
         </div>
       </header>
       <main class="container">
-        <h2>Statistics</h2>
-        <section id="projects">
-          <!-- log content will go here -->
-          {0}
-        </section>
+        <div class="row">
+          <div class="col">
+            <h2>Statistics</h2>
+            <div class="row">
+              <div class="col">
+                <section id="top_articles" class="stats">
+                  <h3>Most Viewed Articles</h3>
+                  <hr>
+                  <!-- log content will go here -->
+                  {0}
+                </section>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <section id="author_ranks" class="stats">
+                  <h3>Author Rankings by Views</h3>
+                  <hr>
+                  <!-- log content will go here -->
+                  {1}
+                </section>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <section id="err_stat" class="stats">
+                  <h3>High Error Volume Days</h3>
+                  <hr>
+                  <!-- log content will go here -->
+                  {2}
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <footer class="footer container">
         <div class="row">
