@@ -44,7 +44,22 @@ def get_request_error_log():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select 2 + 4, 3 + 5")
+    c.execute("select log_date, to_char(percentage, '99.9') \
+               from (select t1.log_date, \
+                            t1.err_cnt * 100::numeric / t2.total \
+                            as percentage \
+                     from (select to_char(time, 'Mon dd, yyyy') as log_date, \
+                                  count(status) as err_cnt \
+                           from log \
+                           where status like '404 NOT FOUND' \
+                           group by log_date) t1, \
+                          (select log_date, count(status) as total \
+                           from (select to_char(time, 'Mon dd, yyyy') \
+                                        as log_date, status \
+                                 from log) as nt1 \
+                           group by log_date) t2 \
+                     where t1.log_date = t2.log_date) as temp1 \
+              where percentage > 1")
 
     return c.fetchall()
     db.close()
