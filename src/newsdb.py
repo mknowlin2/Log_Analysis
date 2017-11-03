@@ -15,3 +15,14 @@ def get_top_three_articles():
 
     return c.fetchall()
     db.close()
+
+
+def get_most_pop_author():
+    """Return most popular author of all times in descending order"""
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+
+    c.execute("select 2 + 3, 3 + 4")
+
+    return c.fetchall()
+    db.close()
