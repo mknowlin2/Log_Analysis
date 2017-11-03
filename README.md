@@ -5,7 +5,7 @@ My solution to a Udacity assignment to demonstrate my knowledge of Python DB-API
 1. [Implementation](#implementation)
   * [Dependencies](#dependencies)
   * [Installation](#installation)
-  * [Quick Start Guide](#quick_start_guide)
+  * [Quick Start Guide](#quick-start-guide)
 2. [Contributing](#contributing)
 
 ## Implementation
