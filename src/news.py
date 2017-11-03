@@ -24,13 +24,14 @@ def main():
 
     # Retrieve data from database
     article_logs = "".join(LOG_TMPLT.format(title, views)
-                   for title, views in get_top_three_articles())
+                           for title, views in get_top_three_articles())
     author_logs = "".join(LOG_TMPLT.format(name, views)
                           for name, views in get_most_pop_author())
     err_logs = "".join(LOG_TMPLT2.format(log_date, err_pct)
-                          for log_date, err_pct in get_request_error_log())
+                       for log_date, err_pct in get_request_error_log())
 
-    return render_template('index.html').format(article_logs, author_logs, err_logs)
+    return render_template('index.html') \
+        .format(article_logs, author_logs, err_logs)
 
 
 if __name__ == '__main__':
