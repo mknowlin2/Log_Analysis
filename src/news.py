@@ -29,10 +29,10 @@ def main():
     data = homePage.read()
 
     # Retrieve data from database
-    logs = "".join(LOG_TMPLT.format(title, view_cnt)
-                   for title, view_cnt in get_top_three_articles())
-    logs = logs + "".join(LOG_TMPLT.format(title, view_cnt)
-                          for title, view_cnt in get_most_pop_author())
+    logs = "".join(LOG_TMPLT.format(title, views)
+                   for title, views in get_top_three_articles())
+    logs = logs + "".join(LOG_TMPLT.format(title, views)
+                          for title, views in get_most_pop_author())
     logs = logs + "".join(LOG_TMPLT2.format(title, view_cnt)
                           for title, view_cnt in get_request_error_log())
 

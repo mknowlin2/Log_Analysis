@@ -11,12 +11,8 @@ def get_top_three_articles():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select t2.title, count(t1.path) as view_cnt \
-               from log t1, articles t2 \
-               where t1.path like '%' || t2.slug \
-               group by t1.path, t2.title \
-               order by view_cnt desc \
-               limit 3")
+    c.execute("select title, views from article_views \
+               order by views desc limit 3;")
 
     return c.fetchall()
     db.close()
@@ -27,12 +23,9 @@ def get_most_pop_author():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select t1.name, count(*) view_cnt \
-               from authors t1, articles t2, log t3 \
-               where t1.id = t2.author \
-               and t3.path like '%' || t2.slug \
-               group by t1.name \
-               order by view_cnt desc")
+    c.execute("select t1.name, sum(t2.views) as views \
+               from authors t1, article_views t2 \
+               where t1.id = t2.author group by t1.name order by views desc")
 
     return c.fetchall()
     db.close()
