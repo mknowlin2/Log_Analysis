@@ -27,7 +27,12 @@ def get_most_pop_author():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select 2 + 3, 3 + 4")
+    c.execute("select t1.name, count(*) view_cnt \
+               from authors t1, articles t2, log t3 \
+               where t1.id = t2.author \
+               and t3.path like '%' || t2.slug \
+               group by t1.name \
+               order by view_cnt desc")
 
     return c.fetchall()
     db.close()
