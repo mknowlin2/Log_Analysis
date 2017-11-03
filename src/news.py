@@ -9,11 +9,11 @@ from newsdb import get_top_three_articles, get_most_pop_author, \
 app = Flask(__name__)
 
 # HTML template for an individual comment
-LOG_TMPLT = '''\
+LOG_TMPLT = '''
     <div class=logs>{} — {} views</div>
 '''
 
-LOG_TMPLT2= '''\
+LOG_TMPLT2 = '''
     <div class=logs>{} — {}% errors</div>
 '''
 
@@ -29,14 +29,15 @@ def main():
     data = homePage.read()
 
     # Retrieve data from database
-    logs = "".join(LOG_TMPLT.format(title, view_cnt) \
-           for title, view_cnt in get_top_three_articles())
-    logs = logs + "".join(LOG_TMPLT.format(title, view_cnt) \
-           for title, view_cnt in get_most_pop_author())
-    logs = logs + "".join(LOG_TMPLT2.format(title, view_cnt) \
-           for title, view_cnt in get_request_error_log())
+    logs = "".join(LOG_TMPLT.format(title, view_cnt)
+                   for title, view_cnt in get_top_three_articles())
+    logs = logs + "".join(LOG_TMPLT.format(title, view_cnt)
+                          for title, view_cnt in get_most_pop_author())
+    logs = logs + "".join(LOG_TMPLT2.format(title, view_cnt)
+                          for title, view_cnt in get_request_error_log())
 
     html = data % logs
+
     return html
 
 
