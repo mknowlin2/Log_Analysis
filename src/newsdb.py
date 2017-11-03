@@ -11,7 +11,12 @@ def get_top_three_articles():
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
 
-    c.execute("select 2 + 2, 3 + 3")
+    c.execute("select t2.title, count(t1.path) as view_cnt \
+               from log t1, articles t2 \
+               where t1.path like '%' || t2.slug \
+               group by t1.path, t2.title \
+               order by view_cnt desc \
+               limit 3")
 
     return c.fetchall()
     db.close()
