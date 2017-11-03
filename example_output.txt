@@ -1,0 +1,16 @@
+get_top_three_articles() output:
+
+Candidate is jerk, alleges rival, 338647
+Bears love berries, alleges bear, 253801
+Bad things gone, say good people, 170098
+
+get_most_pop_author() output:
+
+Ursula La Multa, 507594
+Rudolf von Treppenwitz, 423457
+Anonymous Contributor, 170098
+Markoff Chaney, 84557
+
+get_request_error_log() output:
+
+Jul 17, 2016, 2.3%
