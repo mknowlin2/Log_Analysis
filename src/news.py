@@ -3,8 +3,14 @@
 # A log web service for the 'news' database.
 
 from flask import Flask
+from newsdb import get_top_three_articles
 
 app = Flask(__name__)
+
+# HTML template for an individual comment
+LOG_TMPLT = '''\
+    <div class=logs>{} — {} views</div>
+'''
 
 
 @app.route('/', methods=['GET'])
@@ -17,7 +23,11 @@ def main():
     # Store homePage file data in data
     data = homePage.read()
 
-    html = data % 'logs'
+    # Retrieve data from database
+    logs = "".join(LOG_TMPLT.format(title, view_cnt) \
+           for title, view_cnt in get_top_three_articles())
+           
+    html = data % logs
     return html
 
 
